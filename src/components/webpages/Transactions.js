@@ -89,7 +89,7 @@ display: flex;
     table {
       position: absolute;
       left: 50%;
-      top: 50%;
+      top: 60%;
       transform: translate(-50%, -50%);
       table-layout: fixed;
       color: var(--powder-blue);

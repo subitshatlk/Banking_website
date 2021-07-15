@@ -14,7 +14,7 @@ function CreateUser() {
     db: {},
   });
 
-  const submitHandler = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     state.db[state.accountno] = [state.name, state.email, state.accountno, state.balance]
     addUser(state.db[state.accountno])
@@ -23,196 +23,236 @@ function CreateUser() {
 
   return (
     
-      <div class="container">
-     
-    <div className="create__user" css={CSS}>
-    <h1>Add Customer Details</h1>
-     
-      <form onSubmit={submitHandler} className="form">
-        <div className="form__item">
-          <label className="label" htmlFor="name">
+    <div class="container" css={CSS}>
+    <img src='/images/img-2.jpg' />
+    <div id='login-form'class='login-page'>
+      <div class="form-box">
+      <h1>Add Customer Details</h1>
+      
+       
+    
+      <form id="login" class="input-group-login" onSubmit={handleSubmit}>
+        
+          <b><label htmlFor="name" className="label">
             Enter Full Name:
-          </label>
+          </label></b>
           <input
             type="text"
+            
             name="name"
-            className="input"
+            class="input-field"
+           
             value={state.name}
             placeholder="Full Name"
-            onChange={(event) =>
-              setState({ ...state, name: event.target.value })
-            }
+            onChange={(e) => setState({ ...state, name: e.target.value })}
           />
-        </div>
-        <div className="form__item">
-          <label className="label" htmlFor="email">
+        
+        
+          <b><label htmlFor="email" className="label">
             Enter email ID:
-          </label>
+          </label></b><br/>
           <input
             type="text"
+            
             name="email"
-            className="input"
+            class="input-field"
+            
             value={state.email}
-            placeholder="Correct email"
-            onChange={(event) =>
-              setState({ ...state, email: event.target.value })
-            }
+            placeholder="Email address"
+            onChange={(e) => setState({ ...state, email: e.target.value })}
           />
-        </div>
-        <div className="form__item">
-          <label htmlFor="account-no" className="label">
-            Enter Account Number:
-          </label>
+        
+        
+          <b><label htmlFor="account-no" className="label">
+            Enter Account No:
+          </label></b> <br></br>
           <input
             type="number"
+            min={1}
             name="account-no"
-            className="input"
-            min={100000}
-            max={999999}
+            class="input-field"
+            
             value={state.accountno}
-            placeholder="6-digit Account Number"
-            onChange={(event) =>
-              setState({ ...state, accountno: event.target.value })
-            }
-          />
-        </div>
-        <div className="form__item">
-          <label htmlFor="balance" className="label">
+            placeholder="Account Number"
+            onChange={(e) => setState({ ...state, accountno: e.target.value })}
+            />
+
+         <b><label htmlFor="balance" className="label">
             Enter Balance:
-          </label>
+          </label></b> <br></br>
           <input
             type="number"
+            min={1}
             name="balance"
-            className="input"
-            min={0}
+            class="input-field"
+            
             value={state.balance}
-            placeholder="Enter Balance"
-            onChange={(event) =>
-              setState({ ...state, balance: event.target.value })
-            }
-          />
-        </div>
-        <div className="form__item">
-          <button className="submit" type="submit">
-            Submit
+            placeholder="Balance"
+            onChange={(e) => setState({ ...state, balance: e.target.value })}
+          /><br/>
+         <br/>
+          <button type="submit" class='submit-btn'><b>
+            Submit </b>
           </button>
-        </div>
+        
       </form>
+    </div>
     </div>
     </div>
   );
 }
+
 const CSS = css`
-background: linear-gradient(
-  250deg,
-  rgba(72, 202, 228, 1) 10%,
-  rgba(173, 232, 244, 1) 20%,
-  rgba(202, 240, 248, 1) 40%
-);
-*{
-  
-box-sizing : border-box
-height: calc(100vh - 1.5rem);
-display: flex;
-flex-direction: column;
-justify-content: center;
-background: #fff;
-}
-.container {
-  margin: 100px auto;
-  width: 1000px;
-  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
-  position: relative;
-  border-radius: 10px;
-  height: 600px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
-.container .title{
-  font-size: 25px;
-  font-weight: 500;
-  position: relative;
-}
-
-h1 {
-  text-align: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  font-family: "Georgia", sans-serif;
-  font-size: 40px;
-  color: var(--star-command-blue);
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: url('/images/img-home.jpg') center center/cover no-repeat;
   
 }
-
-@media screen and (max-width: 200px) {
-  h1 {
-    font-size: 2.5rem;
-  }
-}
-input[type=text], select {
+img {
+  object-fit: cover ;
   width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  
-  border-radius: 4px;
+  height: 100%;
+  position: fixed;
+  opacity: 0.5;
   
 }
-.form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  
-  padding: 50px;
-  margin: 0 auto;
-  border-radius: 10px;
-  color: black;
-  font-family: "Georgia", sans-serif;
-  width: 90%;
-  max-width: 650px;
-  .form__item {
-      display: flex;
-      flex-wrap: wrap;    
-      
-      margin: 10px 0;
-      .label {
-        font-size: 20px;
-      }
-      .input {
-          font-size: 18px;
-          margin-top: 10px;
-          padding: 10px;
-          border-radius: 4px;
-        }
-    .submit {
-      padding: 10px;
-      text-transform: uppercase;
-      border-radius: 4px;
-      font-size: 20px;
-      font-weight: 600;  
-      font-family: "Georgia", sans-serif;   
-      color: var(--powder-blue);
-      transition: all 0.3s ease;
-      cursor: pointer;
-      background: linear-gradient(
-          180deg,
-          rgba(72, 202, 228, 1) 0%,
-          rgba(173, 232, 244, 1) 50%,
-          rgba(202, 240, 248, 1) 100%
-        );
-     transition: all 0.4s ease-out;
-     }
-    .submit:hover {
-      background-color: var(--sky-blue-crayola);
-      color: var(--navy-blue);
-    }
-    .submit:target {
-      background-color: var(--blizzard-blue;);
-    }
-  }
+.container
+{
+height: 100%;
+width: 100%;
+background-position: center;
+background-size: cover;
+position: absolute;
 }
 
+#login-form
+{
+  display: inline-block;
+  margin-left: 34% !important;
+  margin-right:auto;
+}
+
+.form-box
+{
+width:550px;
+height:590px;
+position: relative;
+margin:7% auto;
+background:rgba(103,128,159,1);
+padding:75px;
+h1 {
+width: 85%;
+padding: 15px 35px;
+cursor: pointer;
+display: block;
+
+background: #F3C693;
+border: 0;
+outline: none;
+border-radius: 10px;
+  text-align: center;
+  margin-top: -17px; 
+  margin-left: 20px;
+  font-size: 25px;
+  color: var(--star-command-blue); 
+}
+}
+.button-box
+{
+
+width:220px;
+margin:0px auto;
+position:relative;
+box-shadow: 0 0 0px 0px #ff61241f;
+border-radius: 30px;
+}
+
+
+#btn
+{
+top: 0;
+left:0;
+position: absolute;
+width: 110px;
+height: 100%;
+background: #F3C693;
+border-radius: 30px;
+transition: .5s;
+}
+.input-group-login
+{
+top: 150px;
+position:absolute;
+width:280px;
+transition:.5s;
+.label
+{
+  font-size: 20px;
+  padding: 10px;
+}
+
+
+}
+.input-group-register
+{
+  top: 120px;
+position:absolute;
+width:280px;
+transition:.5s;
+}
+.input-field
+{
+width: 100%;
+height: 50px;
+font-family: "Verdana", sans-serif;
+padding:10px 0;
+margin:5px 0;
+border-left:3px solid #999;
+border-top:3px solid #999;
+border-right:3px solid #999;
+border-bottom: 3px solid #999;
+outline:none;
+background: transparent;
+}
+.submit-btn
+{
+width: 85%;
+font-size: 20px;
+padding: 15px 35px;
+cursor: pointer;
+display: block;
+margin: auto;
+background: #F3C693;
+border: 0;
+outline: none;
+border-radius: 10px;
+}
+.check-box
+{
+margin: 30px 10px 34px 0;
+}
+span
+{
+color:#777;
+font-size:12px;
+bottom:68px;
+position:absolute;
+}
+#login
+{
+font-size:20px;
+font-family: "Georgia", sans-serif;
+padding:0;
+left:120px;
+}
+#login input
+{
+color:black;
+font-size:20px;
 }
 
 `;
+  
 export default CreateUser;
