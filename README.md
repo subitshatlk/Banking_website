@@ -1,4 +1,5 @@
-# Web Application for Banking using React, CSS and Firebase
+# Web Application for Banking using ReactJS,HTML, CSS and Firebase
+Developed a dynamic website using ReactJS, HTML and CSS that allows easy transaction of money between users. Firebase database is used to store the details of the users as well as the transactions. 
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
