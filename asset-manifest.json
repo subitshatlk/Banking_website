@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/Banking_website/static/css/main.7dac2472.chunk.css",
+    "main.js": "/Banking_website/static/js/main.dd8bb751.chunk.js",
+    "main.js.map": "/Banking_website/static/js/main.dd8bb751.chunk.js.map",
+    "runtime-main.js": "/Banking_website/static/js/runtime-main.9f748b20.js",
+    "runtime-main.js.map": "/Banking_website/static/js/runtime-main.9f748b20.js.map",
+    "static/js/2.25973019.chunk.js": "/Banking_website/static/js/2.25973019.chunk.js",
+    "static/js/2.25973019.chunk.js.map": "/Banking_website/static/js/2.25973019.chunk.js.map",
+    "index.html": "/Banking_website/index.html",
+    "static/css/main.7dac2472.chunk.css.map": "/Banking_website/static/css/main.7dac2472.chunk.css.map",
+    "static/js/2.25973019.chunk.js.LICENSE.txt": "/Banking_website/static/js/2.25973019.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9f748b20.js",
+    "static/js/2.25973019.chunk.js",
+    "static/css/main.7dac2472.chunk.css",
+    "static/js/main.dd8bb751.chunk.js"
+  ]
+}
